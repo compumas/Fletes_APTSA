@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <a href="cerrar.php" class="btn btn-danger text-black position-absolute top-50 start-50">Cerrar Sesión</a>
+    <a href="cerrar.php" class="btn btn-danger text-black position-absolute top-0 end-0">Cerrar Sesión</a>
     <marquee scrollamount="10" style = "color:#FF8133; font-size:20px;">En <i><b>APTSA</b></i> las personas hacemos la diferencia...</marquee>
 
 
