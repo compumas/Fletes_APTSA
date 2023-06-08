@@ -111,7 +111,7 @@
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
                                 <td><a style="text-decoration:none" href="editar.php?id=<?php echo $dato->id; ?>">
-                                    <i  class="bi bi-pencil-square text-info fs-5">Editar </i></a>|
+                                    <i  class="bi bi-pencil-square text-info fs-5 mx-2">Editar </i></a>|
                                     <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-trash text-danger text-success fs-5 ">Eliminar</i></a></td>
                                

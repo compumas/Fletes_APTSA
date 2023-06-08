@@ -6,7 +6,7 @@
         header('location: index.php?mensaje=error');
         exit();
     }
-
+session_start();
     include_once 'conexion.php';
     $codigo=$_GET['id'];
     

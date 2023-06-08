@@ -32,13 +32,18 @@
                 <header class="py-3"> 
                     <h3 class="text-center">Sistema de Reparto APTSA</h3>
                     <h5 class="text-center">Binvenido usuario :<?php echo " ". $_SESSION["usuario"] ?></h5>
+                   
+                    <p class="text-center"><a  href="cerrar.php" class="text-danger fs-5"><strong>Cerrar Sesión</strong></a></p>
                 </header>
             </div>
         </div>
     </div>
-    <a href="cerrar.php" class="btn btn-danger text-black position-absolute top-0 end-0">Cerrar Sesión</a>
+   
     <marquee scrollamount="10" style = "color:#FF8133; font-size:20px;">En <i><b>APTSA</b></i> las personas hacemos la diferencia...</marquee>
-
+   
+   
+   
+   
 
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -138,10 +143,10 @@
                                 <td ><?php echo $dato->zona; ?></td>
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
-                                <td><a style="text-decoration:none" href="editar.php?id=<?php echo $dato->id; ?>">
-                                    <i class="bi bi-pencil-square text-info fs-5">Ampliar</i></a>
+                                <td><a  style="text-decoration:none" href="verchofer.php?id=<?php echo $dato->id; ?>">
+                                    <i class="bi bi-box-arrow-up-left text-info fs-5"> Ampliar</i></a> |
                                     <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
-                                    <i class="bi bi-trash text-danger text-success fs-5">Cerrar</i></a></td>
+                                    <i class="bi bi-truck text-danger text-success fs-5"> Entregado</i></a></td>
                                
                             </tr>
 
