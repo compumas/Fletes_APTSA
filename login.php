@@ -1,5 +1,45 @@
 <?php
    session_start();
+include "conexion.php";
+    if(isset($_GET['cerrar_sesion'])){
+        session_unset();
+        session_destroy();
+    }
+
+    
+            
+         //   print_r($_POST ); 
+    if($_POST){
+        
+        //$bd= new Database();
+       // $query=$bd->connect()->prepare('SELECT * FROM usuarios WHERE usuario := usuario AND clave := clave');
+       // $query->execute(['usuario' => $usuario, 'contrasena' => $contrasena]);
+
+        $sentencia=$bd-> prepare("SELECT *, count(*) as n_usuario FROM 'usuarios'
+            WHERE usuario=:usuario AND clave=:clave");
+
+        $usuario = $_POST["usuario"];
+        $contrasena = $_POST["contrasena"];
+       
+        $sentencia->bindParam(":usuario", $usuario);
+        $sentencia->bindParam(":clave", $contrasena);
+
+        $sentencia->execute();
+
+        $ordenes=$sentencia->fetch(PDO::FETCH_LAZY);
+        
+        print_r($ordenes);
+
+        //$row=$query->fetch(PDO::FETCH_NUM);
+       /* if($ordenes == true){
+            //validar rol
+        } else {
+            //no existe usuario
+            echo "El usuario o contraseña son incorrectos";
+        }  */
+
+   }
+
 
 	
 if($_POST) {
@@ -16,10 +56,52 @@ if($_POST) {
     $sentencia->execute();
     $registro=$sentencia->fetch(PDO::FETCH_LAZY);
 
+//print_r($registro);
+    /*
+        switch($_SESSION['rol']){
+            case 1:
+                header('location:index.php');
+
+            case 2:
+                header('location:chofer.php');
+                
+            default:   
+        }
+    
+        */
+
+
+
+
+
+
+
     if($registro["n_usuarios"]>0){
-        $_SESSION["usuario"]=$registro["usuario"];
+        $_SESSION["nombre"]=$registro["nombre"];
+        $_SESSION["rol"]=$registro["rol"];
         $_SESSION["logueado"]=true;
-        header("location:index.php");
+      //var_dump( $registro['nombre']);  exit;
+
+         switch($registro['rol_id']){
+            case "1":
+                var_dump( $registro['rol_id']);
+                header('location:index.php');
+                break;
+
+            case "2":
+                var_dump( $registro['rol_id']);
+                header('location:chofer.php');
+                break;
+          // default:   
+        }
+
+
+
+
+
+
+
+      //  header("location:index.php");
     } else {
         $mensaje="Error: El usuario o contraseña son incorrectos!!!";
     }
@@ -100,3 +182,20 @@ if($_POST) {
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+<?php 
+  
+  session_start();
+
+  $url_base="http://localhost:8080/fletes/";
+
+  if(!isset($_SESSION["usuario"])){
+    header("location:".$url_base."login.php");
+     /* header("location:./login.php");*/
+  }else{ $name="admin";
+    if ($name == $_SESSION["usuario"]){
+      header("location:./chofer.php");
+    }
+  }
+
+?>

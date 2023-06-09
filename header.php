@@ -4,18 +4,7 @@
 
   $url_base="http://localhost:8080/fletes/";
 
-  if(!isset($_SESSION["usuario"])){
-    header("location:".$url_base."login.php");
-     /* header("location:./login.php");*/
-  }else{ $name="admin";
-    if ($name == $_SESSION["usuario"]){
-      header("location:./chofer.php");
-    }
-  }
-
 ?>
-
-
 
 <!doctype html>
 <html lang="es">
@@ -38,7 +27,7 @@
             <div class="col-md">
                 <header class="py-3"> 
                     <h3 class="text-center">Sistema de Reparto APTSA</h3>
-                    <h5 class="text-center">Binvenido usuario :<?php echo " ". $_SESSION["usuario"] ?></h5>
+                    <h5 class="text-center">Binvenido: <?php echo " ". $_SESSION["nombre"] ?></h5>
                 </header>
             </div>
         </div>

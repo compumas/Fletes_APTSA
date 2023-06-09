@@ -6,7 +6,7 @@
         header('location: index.php?mensaje=error');
         exit();
     }
-session_start();
+
     include_once 'conexion.php';
     $codigo=$_GET['id'];
     
@@ -22,33 +22,33 @@ session_start();
             <div class="row justify-content-center">
                 <div class="col-md-4">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-danger">
 
 
-                  Editar Datos
+                  Ver Pedido
 
                 </div>
                 <form class="p-4" method="POST" action="editarproceso.php">
                     <div class="mb-3">
                         <label class="form-lavel">No. Fact/Remisión </label>
-                        <input type="text" class="form-control" name="ndoc" autofocus required 
+                        <input type="text" class="form-control" name="ndoc" autofocus required readonly
                         value="<?php echo $persona->ndoc; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-lavel">Fecha: </label>
-                        <input type="datetime-local" class="form-control" name="fecha" autofocus required
+                        <input type="datetime-local" class="form-control disabled" name="fecha" autofocus required readonly
                         value="<?php echo $persona->fecha; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-lavel">Direccion: </label>
-                        <input type="text" class="form-control" name="dir" autofocus 
+                        <input type="text" class="form-control" name="dir" autofocus readonly 
                         value="<?php echo $persona->dir; ?>">
                     </div>
                     <div class="mb-3">
                      <!--   <label class="form-lavel">Zona: </label>
                         <input type="text" class="form-control" name="txtSigno" autofocus required>-->
                         <label for="mpo">Selecciona Municipio:</label>
-                        <select class="form-select" aria-label="Default select example" name="zona" autofocus required>
+                        <select class="form-select" aria-label="Default select example" name="zona" autofocus required disabled>
                             <option ><?php echo $persona->zona; ?></option>
                             <option >Apodaca</option>
                             <option >Escobedo</option>
@@ -70,7 +70,7 @@ session_start();
                      <!--   <label class="form-lavel">Zona: </label>
                         <input type="text" class="form-control" name="txtSigno" autofocus required>-->
                         <label for="chofer">Chofer:</label>
-                        <select class="form-select" aria-label="Default select example" name="chofer" autofocus>
+                        <select class="form-select" aria-label="Default select example" name="chofer" autofocus disabled>
                             <option ><?php echo $persona->chofer; ?></option>
                             <option >Héctor Rmz</option>
                             <option >Marcos Vega</option>
@@ -87,13 +87,13 @@ session_start();
 
                     <div class="mb-3">
                         <label class="form-lavel">Costo$ </label>
-                        <input type="text" class="form-control" name="costo" autofocus required
+                        <input type="text" class="form-control" name="costo" autofocus required readonly
                         value="<?php echo $persona->costo; ?>">
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="id" value="<?php echo $persona->id; ?>">
-                        <input type="submit" class="btn btn-primary" value="Actualizar Datos">
-                        <a href="index.php" class="btn btn-info text-black-50 mt-2">Cancelar</a>
+                        <!--<input type="submit" class="btn btn-primary" value="Actualizar Datos"> -->
+                        <a href="chofer.php" class="btn btn-info text-black mt-2">Regresar</a>
                     </div>
                 </form>
             </div>

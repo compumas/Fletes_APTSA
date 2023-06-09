@@ -4,8 +4,9 @@
 <?php
      session_start();
     include_once "conexion.php";
+    $usuarios=$_SESSION["usuario"];
     
-    $sentencia = $bd -> query("select * from orden WHERE estatus='A'");
+    $sentencia = $bd -> query("select * from orden WHERE estatus='A' ");
     $ordenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($persona)
 ?>
@@ -31,7 +32,7 @@
             <div class="col-md">
                 <header class="py-3"> 
                     <h3 class="text-center">Sistema de Reparto APTSA</h3>
-                    <h5 class="text-center">Binvenido usuario :<?php echo " ". $_SESSION["usuario"] ?></h5>
+                    <h5 class="text-center">Bienvenido :<?php echo " ". $_SESSION["nombre"] ?></h5>
                    
                     <p class="text-center"><a  href="cerrar.php" class="text-danger fs-5"><strong>Cerrar Sesión</strong></a></p>
                 </header>
@@ -143,7 +144,7 @@
                                 <td ><?php echo $dato->zona; ?></td>
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
-                                <td><a  style="text-decoration:none" href="verchofer.php?id=<?php echo $dato->id; ?>">
+                                <td><a  style="text-decoration:none" href="choferver.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-box-arrow-up-left text-info fs-5"> Ampliar</i></a> |
                                     <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-truck text-danger text-success fs-5"> Entregado</i></a></td>
