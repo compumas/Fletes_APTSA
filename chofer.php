@@ -4,9 +4,9 @@
 <?php
      session_start();
     include_once "conexion.php";
-    $usuarios=$_SESSION["usuario"];
+    $nombre=$_SESSION["nombre"];
     
-    $sentencia = $bd -> query("select * from orden WHERE estatus='A' ");
+    $sentencia = $bd -> query("select * from orden WHERE estatus = 'A' AND chofer = '$nombre'");
     $ordenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($persona)
 ?>
@@ -146,7 +146,7 @@
                                 <td><?php echo $dato->costo;?></td>
                                 <td><a  style="text-decoration:none" href="choferver.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-box-arrow-up-left text-info fs-5"> Ampliar</i></a> |
-                                    <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
+                                    <a style="text-decoration:none" onclick= "return confirm('Deseas cerrar pedido?');" href="no_borrar.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-truck text-danger text-success fs-5"> Entregado</i></a></td>
                                
                             </tr>

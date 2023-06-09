@@ -56,25 +56,6 @@ if($_POST) {
     $sentencia->execute();
     $registro=$sentencia->fetch(PDO::FETCH_LAZY);
 
-//print_r($registro);
-    /*
-        switch($_SESSION['rol']){
-            case 1:
-                header('location:index.php');
-
-            case 2:
-                header('location:chofer.php');
-                
-            default:   
-        }
-    
-        */
-
-
-
-
-
-
 
     if($registro["n_usuarios"]>0){
         $_SESSION["nombre"]=$registro["nombre"];

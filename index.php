@@ -6,7 +6,7 @@
     
     $sentencia = $bd -> query("select * from orden WHERE estatus='A'");
     $ordenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    //print_r($persona)
+    
 
 
 ?>
@@ -179,16 +179,16 @@
                         <label for="chofer">Chofer:</label>
                         <select class="form-select text-danger" aria-label="Default select example" name="chofer" autofocus required>
                             <option selected>Seleccionar...</option>
-                            <option >Héctor Rmz</option>
+                            <option >Héctor Rámirez</option>
                             <option >Marcos Vega</option>
                             <option >José D La Torre</option>
-                            <option >Martín Hdz</option>
-                            <option >Salvador Hdz</option>
-                            <option >Luis Gtz</option>
-                            <option>Rolando M</option>
-                            <option >Gregorio</option>
-                            <option >Oscar C</option>
-                            <option >Virgilio R</option>
+                            <option >Martín Hernández</option>
+                            <option >Salvador Hernández</option>
+                            <option >Luis Gutierrez</option>
+                            <option>Rolando Mata</option>
+                            <option >Gregorio Fernando</option>
+                            <option >Oscar Contreras</option>
+                            <option >Virgilio Ramos</option>
                         </select>
                     </div>
                     <div class="mb-3">

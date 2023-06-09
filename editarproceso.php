@@ -14,6 +14,7 @@
     $zona=$_POST["zona"];
     $chofer=$_POST["chofer"];
     $costo=$_POST["costo"];
+    
 
     $sentencia = $bd->prepare("UPDATE orden SET ndoc = ?,fecha = ?,dir = ?,zona = ?,chofer = ?,costo = ? WHERE id=?;");
     $resultado = $sentencia->execute([$ndoc, $fecha, $dir, $zona, $chofer,$costo, $id]);
