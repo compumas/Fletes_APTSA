@@ -1,6 +1,13 @@
 <?php 
   
   session_start();
+  error_reporting(0);
+  $varsesion=$_SESSION["nombre"];
+
+  if ($varsesion == null || $varsesion="") {
+    echo "Usted no tiene autorización";
+    die();
+  }
 
   $url_base="http://localhost:8080/fletes/";
 

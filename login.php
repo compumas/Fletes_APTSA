@@ -1,22 +1,12 @@
 <?php
    session_start();
 include "conexion.php";
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset();
-        session_destroy();
-    }
-
-    
-            
-         //   print_r($_POST ); 
-    if($_POST){
+ 
+ 
+ /*   if($_POST){
         
-        //$bd= new Database();
-       // $query=$bd->connect()->prepare('SELECT * FROM usuarios WHERE usuario := usuario AND clave := clave');
-       // $query->execute(['usuario' => $usuario, 'contrasena' => $contrasena]);
-
         $sentencia=$bd-> prepare("SELECT *, count(*) as n_usuario FROM 'usuarios'
-            WHERE usuario=:usuario AND clave=:clave");
+        WHERE usuario=:usuario AND clave=:clave");
 
         $usuario = $_POST["usuario"];
         $contrasena = $_POST["contrasena"];
@@ -30,15 +20,7 @@ include "conexion.php";
         
         print_r($ordenes);
 
-        //$row=$query->fetch(PDO::FETCH_NUM);
-       /* if($ordenes == true){
-            //validar rol
-        } else {
-            //no existe usuario
-            echo "El usuario o contraseña son incorrectos";
-        }  */
-
-   }
+       }   */
 
 
 	
@@ -61,7 +43,7 @@ if($_POST) {
         $_SESSION["nombre"]=$registro["nombre"];
         $_SESSION["rol"]=$registro["rol"];
         $_SESSION["logueado"]=true;
-      //var_dump( $registro['nombre']);  exit;
+     
 
          switch($registro['rol_id']){
             case "1":
@@ -72,17 +54,9 @@ if($_POST) {
             case "2":
                 var_dump( $registro['rol_id']);
                 header('location:chofer.php');
-                break;
-          // default:   
+                break; 
         }
-
-
-
-
-
-
-
-      //  header("location:index.php");
+ 
     } else {
         $mensaje="Error: El usuario o contraseña son incorrectos!!!";
     }
@@ -164,19 +138,20 @@ if($_POST) {
     </body>
 </html>
 
-<?php 
+<!-- 
+   <?php 
   
-  session_start();
-
+  /*session_start();
+  
   $url_base="http://localhost:8080/fletes/";
 
   if(!isset($_SESSION["usuario"])){
     header("location:".$url_base."login.php");
-     /* header("location:./login.php");*/
+      header("location:./login.php");
   }else{ $name="admin";
     if ($name == $_SESSION["usuario"]){
       header("location:./chofer.php");
     }
-  }
+  } 
 
-?>
+?>   -->*/

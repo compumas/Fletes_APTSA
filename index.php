@@ -4,7 +4,7 @@
 <?php
     include_once "conexion.php";
     
-    $sentencia = $bd -> query("select * from orden WHERE estatus='A'");
+    $sentencia = $bd -> query("select * from orden");
     $ordenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
     
 
@@ -94,7 +94,8 @@
                                 <th >Direccion</th>
                                 <th >Zona</th>
                                 <th >Chofer</th>
-                                <th >Costo$</th>
+                                <th >Costo</th>
+                                <th >Estatus</th>
                                 <th >Opción</th>
                             </tr>
                         </thead>
@@ -110,6 +111,7 @@
                                 <td ><?php echo $dato->zona; ?></td>
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
+                                <td><?php echo $dato->estatus;?></td>
                                 <td><a style="text-decoration:none" href="editar.php?id=<?php echo $dato->id; ?>">
                                     <i  class="bi bi-pencil-square text-info fs-5 mx-2">Editar </i></a>|
                                     <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
@@ -198,7 +200,7 @@
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">
                         <input type="submit" class="btn btn-primary" value="Grabar Registro">
-                        <a href="cerrar.php" class="btn btn-info text-black-50 mt-2">Cerrar Sesión</a>
+                        <a href="cerrar.php" class="btn btn-info text-black mt-2"><strong>Cerrar Sesión</strong></a>
                     </div>
                 </form>
                 

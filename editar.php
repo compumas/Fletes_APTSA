@@ -22,10 +22,10 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-danger">
 
 
-                  Editar Datos
+                 <strong> Editar Datos </strong>
 
                 </div>
                 <form class="p-4" method="POST" action="editarproceso.php">
@@ -93,7 +93,7 @@
                     <div class="d-grid">
                         <input type="hidden" name="id" value="<?php echo $persona->id; ?>">
                         <input type="submit" class="btn btn-primary" value="Actualizar Datos">
-                        <a href="index.php" class="btn btn-info text-black-50 mt-2">Cancelar</a>
+                        <a href="index.php" class="btn btn-info text-black mt-2">Cancelar</a>
                     </div>
                 </form>
             </div>

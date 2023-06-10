@@ -2,7 +2,15 @@
 
 
 <?php
-     session_start();
+    session_start();
+    
+    error_reporting(0);
+    $varsesion=$_SESSION["nombre"];
+
+    if ($varsesion == null || $varsesion="") {
+        echo "Usted no tiene autorización";
+        die();
+    }
     include_once "conexion.php";
     $nombre=$_SESSION["nombre"];
     
