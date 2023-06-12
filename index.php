@@ -1,5 +1,16 @@
 <?php include 'header.php' ?>
 
+<?php
+session_start();
+error_reporting(0);
+  $varsesion=$_SESSION["nombre"];
+  $varroles=$_SESSION["rol_id"];
+if ($varroles != "1") {
+    echo "Usted no tiene autorización";
+   
+    die();
+  }
+?>
 
 <?php
     include_once "conexion.php";
@@ -31,6 +42,7 @@
         <?php
             if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){  
         ?>
+            swal("Hello world!");
         <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Registrado!!!</strong> Registro Agregado.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -114,7 +126,7 @@
                                 <td><?php echo $dato->estatus;?></td>
                                 <td><a style="text-decoration:none" href="editar.php?id=<?php echo $dato->id; ?>">
                                     <i  class="bi bi-pencil-square text-info fs-5 mx-2">Editar </i></a>|
-                                    <a style="text-decoration:none" onclick= "return confirm('Estas seguro quieres borrar?');" href="eliminar.php?id=<?php echo $dato->id; ?>">
+                                    <a style="text-decoration:none"  href="javascript:borrar(<?php echo $dato->id; ?>);">
                                     <i class="bi bi-trash text-danger text-success fs-5 ">Eliminar</i></a></td>
                                
                             </tr>
@@ -209,7 +221,23 @@
      </div>
 </div>
 
+<script>
+    function borrar(id){
+     Swal.fire({
+  title: '¿Deseas borrar el registro?',
+   showCancelButton: true,
+  confirmButtonText: 'Si Borrar',
+ }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    window.location="eliminar.php?id="+id
+    }
+})
 
+        //eliminar.php?id=
+      
+    }
+    </script>
 
 
 <?php include 'footer.php' ?>

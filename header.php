@@ -3,7 +3,8 @@
   session_start();
   error_reporting(0);
   $varsesion=$_SESSION["nombre"];
-
+  $varroles=$_SESSION["rol_id"];
+  // echo $varroles; die();
   if ($varsesion == null || $varsesion="") {
     echo "Usted no tiene autorización";
     die();
@@ -32,6 +33,8 @@
   <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
  
   <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </head>
   <body>

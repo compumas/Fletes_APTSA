@@ -40,6 +40,7 @@ if($_POST) {
 
 
     if($registro["n_usuarios"]>0){
+        $_SESSION["rol_id"]=$registro["rol_id"];
         $_SESSION["nombre"]=$registro["nombre"];
         $_SESSION["rol"]=$registro["rol"];
         $_SESSION["logueado"]=true;
