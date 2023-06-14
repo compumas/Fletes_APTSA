@@ -7,27 +7,40 @@
     }
 
     include 'conexion.php';
-     $codigo=$_GET["id"];
+    $codigo=$_GET["id"];
      $sentencia=$bd->prepare("select * from orden where id = ?;");
     $sentencia->execute([$codigo]);
     $persona=$sentencia->fetch(PDO::FETCH_OBJ);
     
+    date_default_timezone_set('America/Mazatlan');
+    $ffin=date("Y-m-d H:i:s");
+
+    /* <?php
+            echo"<td>Fecha de Entrega <input type=date name=fecha_entrega size=10 value=\"".@$fecha_entrega."\"</td>";
+            $fecha_actual2 = date("d-m-Y h:i:s");
+            echo $fecha_actual2;
+            date_default_timezone_set('America/Mazatlan');
+            $fecha_actual= date("D M j G:i:s T Y");
+            echo "Bien hecho " . $fecha_actual;
+             ?>*/
+
+
     
    $ndoc=$persona->ndoc;
-  $fecha=$persona->fecha;
+   $fecha=$persona->fecha;
    $dir=$persona->dir;
    $zona=$persona->zona;
    $chofer=$persona->chofer;
    $costo=$persona->costo;
-   $ffin=$persona->ffin;
+   //$ffin=$persona->ffin;
     $estatus="T";
-    echo $chofer." ".$estatus." ".$codigo; 
-
+    //echo $chofer." ".$estatus." ".$codigo; 
+    // echo $codigo ." ". $ffin ." ". $estatus; exit;
 
   //  $sentencia = $bd->prepare("UPDATE orden SET ndoc = ?,fecha = ?,dir = ?,zona = ?,chofer = ?,costo = ?, estatus = ? WHERE id=?;");
   //  $resultado = $sentencia->execute([$ndoc, $fecha, $dir, $zona, $chofer,$costo, $estatus, $id]);
-$sentencia = $bd->prepare("UPDATE orden SET estatus = ? WHERE id=?;");
-    $resultado = $sentencia->execute([$estatus, $codigo]);
+$sentencia = $bd->prepare("UPDATE orden SET estatus = ?, ffin = ? WHERE id=?;");
+    $resultado = $sentencia->execute([$estatus, $ffin, $codigo]);
 
  /*  $query="UPDATE orden SET ndoc:=ndoc, fecha:=fecha, dir:=dir, zona:=zona, 
    chofer:=chofer, costo:=costo, estatus:=estatus, ffin:=ffin WHERE id:=id;";

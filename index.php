@@ -73,7 +73,7 @@ if ($varroles != "1") {
              }
         ?>
 
-<?php
+        <?php
             if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){  
         ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -86,10 +86,7 @@ if ($varroles != "1") {
 
          <!--- fin alerta --->
 
-
-
-
-
+            
 
             <div class="card lg">
                 
@@ -102,11 +99,12 @@ if ($varroles != "1") {
                         <thead>
                             <tr>
                                 <th >Doc</th>
-                                <th >Fecha</th>
+                                <th >Fecha In</th>
                                 <th >Direccion</th>
                                 <th >Zona</th>
                                 <th >Chofer</th>
                                 <th >Costo</th>
+                                <th >Fecha Fin</th>
                                 <th >Estatus</th>
                                 <th >Opción</th>
                             </tr>
@@ -123,11 +121,13 @@ if ($varroles != "1") {
                                 <td ><?php echo $dato->zona; ?></td>
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
+                                <td><?php echo $dato->ffin;?></td>
                                 <td><?php echo $dato->estatus;?></td>
                                 <td><a style="text-decoration:none" href="editar.php?id=<?php echo $dato->id; ?>">
                                     <i  class="bi bi-pencil-square text-info fs-5 mx-2">Editar </i></a>|
-                                    <a style="text-decoration:none"  href="javascript:borrar(<?php echo $dato->id; ?>);">
-                                    <i class="bi bi-trash text-danger text-success fs-5 ">Eliminar</i></a></td>
+                                 <!--   <a class="disabled" style="text-decoration:none" target="_blank"  href="javascript:borrar(<?php echo $dato->id; ?>);"> -->
+                                 <a  style="text-decoration:none"   href="#">
+                                    <i class="bi bi-trash text-danger text-success fs-5" >Eliminar</i></a></td>
                                
                             </tr>
 
@@ -152,7 +152,7 @@ if ($varroles != "1") {
                     Ingresar Datos
 
                 </div>
-                <form class="p-4" method="POST" action="registrar.php">
+                  <form class="p-4" method="POST" action="registrar.php">
                     <div class="mb-3">
                         <label class="form-lavel">No. Fact/Remisión </label>
                         <input type="text" class="form-control" name="ndoc" autofocus required>

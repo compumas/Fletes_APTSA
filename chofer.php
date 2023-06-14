@@ -139,11 +139,12 @@
                         <thead>
                             <tr>
                                 <th >Doc</th>
-                                <th >Fecha</th>
+                                <th >Fecha In</th>
                                 <th >Direccion</th>
                                 <th >Zona</th>
                                 <th >Chofer</th>
-                                <th >Costo$</th>
+                                <th >Costo</th>
+                                <th >Fecha Fin</th>
                                 <th >Opción</th>
                             </tr>
                         </thead>
@@ -159,6 +160,7 @@
                                 <td ><?php echo $dato->zona; ?></td>
                                 <td ><?php echo $dato->chofer; ?></td>
                                 <td><?php echo $dato->costo;?></td>
+                                <td><?php echo $dato->ffin;?></td>
                                 <td><a  style="text-decoration:none" href="choferver.php?id=<?php echo $dato->id; ?>">
                                     <i class="bi bi-box-arrow-up-left text-info fs-5"> Ampliar</i></a> |
                                     <a style="text-decoration:none" onclick= "return confirm('Deseas cerrar pedido?');" href="no_borrar.php?id=<?php echo $dato->id; ?>">
