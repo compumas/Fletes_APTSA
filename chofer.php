@@ -16,8 +16,10 @@
     
     $sentencia = $bd -> query("select * from orden WHERE estatus = 'A' AND chofer = '$nombre'");
     $ordenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    //print_r($persona)
-?>
+    //print_r ($ordenes);
+    $cuenta=$sentencia->rowCount();
+    
+   ?>
 
 <!doctype html>
 <html lang="es">
@@ -47,9 +49,10 @@
             <div class="col-md">
                 <header class="py-3"> 
                     <h3 class="text-center">Sistema de Reparto APTSA</h3>
-                    <h5 class="text-center">Bienvenido :<?php echo " ". $_SESSION["nombre"] ?></h5>
+                    <h5 class="text-center">Bienvenido :<?php echo " ". $_SESSION["nombre"]. "Tienes ".$cuenta." Pendientes" ?></h5>
                    
-                    <p class="text-center"><a  href="cerrar.php" class="text-danger fs-5"><strong>Cerrar Sesión</strong></a></p>
+                    <p class="text-center"><a  href="cerrar.php" type="button" class="text-danger fs-5"><button class="btn btn-warning"><strong>Cerrar Sesión</strong></button></a></p>
+                    
                 </header>
             </div>
         </div>

@@ -34,11 +34,13 @@
   </script>
 
   </body>
-  <script>
+
+  <!--<script>
        (function(){
 var fecha = new Date;
 document.write(fecha);
 
        }())
-  </script>
+  </script>  -->
+  
 </html>

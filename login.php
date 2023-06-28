@@ -90,7 +90,7 @@ if($_POST) {
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header text-center">
-                                        <img src="LOGO_APTSa.png" width="290" height="50%" alt="login-icon"  /></div>
+                                        <img src="LOGO_APTSa.png" width="50%" height="50%" alt="login-icon"  /></div>
                                     <!--   <h3 class="text-center font-weight-light my-4">Login</h3></div>-->
                                     <div class="card-body">
                                          <?php if(isset($mensaje)) { ?>

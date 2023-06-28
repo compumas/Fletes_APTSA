@@ -211,8 +211,8 @@ if ($varroles != "1") {
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">
-                        <input type="submit" class="btn btn-primary" value="Grabar Registro">
-                        <a href="cerrar.php" class="btn btn-info text-black mt-2"><strong>Cerrar Sesión</strong></a>
+                        <input type="submit" class="btn btn-success"  value="Grabar Registro">
+                        <a href="cerrar.php" class="btn btn-danger text-black mt-2"><strong>Cerrar Sesión</strong></a>
                     </div>
                 </form>
                 
